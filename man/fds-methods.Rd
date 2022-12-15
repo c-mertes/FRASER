@@ -41,17 +41,7 @@
 \alias{FRASER.mcols.get}
 \alias{FRASER.rowRanges.get}
 \alias{mapSeqlevels}
-\title{Getter/Setter methods for the FraserDataSet
-
-The following methods are getter and setter methods to extract or set
-certain values of a FraserDataSet object. 
-
-\code{samples} sets or gets the sample IDs; \code{condition} ;
-\code{}
-\code{nonSplicedReads} return a RangedSummarizedExperiment object 
-containing the counts for the non spliced reads overlapping splice 
-sites in the fds.
-\code{}}
+\title{Getter/Setter methods for the FraserDataSet}
 \usage{
 samples(object)
 
@@ -151,10 +141,8 @@ passed to GenomeInfoDb::mapSeqlevels().}
 Getter method return the respective current value.
 }
 \description{
-Getter/Setter methods for the FraserDataSet
-
-The following methods are getter and setter methods to extract or set
-certain values of a FraserDataSet object. 
+The following methods are getter and setter methods to extract 
+or set certain values of a FraserDataSet object. 
 
 \code{samples} sets or gets the sample IDs; \code{condition} ;
 \code{}
@@ -162,8 +150,6 @@ certain values of a FraserDataSet object.
 containing the counts for the non spliced reads overlapping splice 
 sites in the fds.
 \code{}
-
-Mapping of chromosome names
 }
 \examples{
 fds <- createTestFraserDataSet()

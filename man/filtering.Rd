@@ -72,16 +72,16 @@ reliably detected and to remove introns with no variablity between samples.
 }
 \section{Functions}{
 \itemize{
-\item \code{filterExpressionAndVariability}: This functions filters out both introns with low 
+\item \code{filterExpressionAndVariability()}: This functions filters out both introns with low 
 read support and introns that are not variable across samples.
 
-\item \code{filterExpression,FraserDataSet-method}: This function filters out introns and corresponding 
+\item \code{filterExpression(FraserDataSet)}: This function filters out introns and corresponding 
 splice sites that have low read support in all samples.
 
-\item \code{filterVariability}: This function filters out introns and corresponding 
+\item \code{filterVariability()}: This function filters out introns and corresponding 
 splice sites which do not show variablity across samples.
-}}
 
+}}
 \examples{
 fds <- createTestFraserDataSet()
 fds <- filterExpressionAndVariability(fds, minDeltaPsi=0.1, filter=FALSE)

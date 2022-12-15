@@ -12,8 +12,8 @@ asFDS <- function(x){
 #'
 #' @title Getter/Setter methods for the FraserDataSet
 #'
-#' The following methods are getter and setter methods to extract or set
-#' certain values of a FraserDataSet object. 
+#' @description The following methods are getter and setter methods to extract 
+#' or set certain values of a FraserDataSet object. 
 #' 
 #' \code{samples} sets or gets the sample IDs; \code{condition} ;
 #' \code{}
@@ -654,6 +654,11 @@ FRASER.results <- function(object, sampleIDs, fdrCutoff, zscoreCutoff,
 
     stopifnot(is(object, "FraserDataSet"))
     stopifnot(all(sampleIDs %in% samples(object)))
+    
+    if("annotatedJunction" %in% colnames(mcols(object, type="j")) && 
+            !("annotatedJunction" %in% additionalColumns)){
+        additionalColumns <- c(additionalColumns, "annotatedJunction")
+    }
 
     resultsls <- bplapply(psiType, BPPARAM=BPPARAM, function(type){
         message(date(), ": Collecting results for: ", type)

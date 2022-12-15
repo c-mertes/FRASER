@@ -91,63 +91,63 @@ the values within the FRASER model.
 }
 \section{Functions}{
 \itemize{
-\item \code{featureExclusionMask}: Retrieves a logical vector indicating
+\item \code{featureExclusionMask()}: Retrieves a logical vector indicating
 for each junction whether it is included or excluded during the fitting
 procedure.
 
-\item \code{featureExclusionMask<-}: To remove certain junctions from 
+\item \code{featureExclusionMask(fds, type = currentType(fds)) <- value}: To remove certain junctions from 
 being used in the train step of the encoding dimension we can set the 
 \code{featureExclusion} vector to \code{FALSE}. This can be helpfull 
 if we have local linkage between features which we do not want to 
 model by the autoencoder.
 
-\item \code{rho}: Returns the fitted rho values for the 
+\item \code{rho()}: Returns the fitted rho values for the 
 beta-binomial distribution
 
-\item \code{zScores}: This returns the calculated z-scores.
+\item \code{zScores()}: This returns the calculated z-scores.
 
-\item \code{pVals}: This returns the calculated p-values.
+\item \code{pVals()}: This returns the calculated p-values.
 
-\item \code{padjVals}: This returns the adjusted p-values.
+\item \code{padjVals()}: This returns the adjusted p-values.
 
-\item \code{predictedMeans}: This returns the fitted mu (i.e. psi) 
+\item \code{predictedMeans()}: This returns the fitted mu (i.e. psi) 
 values.
 
-\item \code{deltaPsiValue}: Returns the difference between the 
+\item \code{deltaPsiValue()}: Returns the difference between the 
 observed and the fitted psi values.
 
-\item \code{currentType}: Returns the psi type that is used 
+\item \code{currentType()}: Returns the psi type that is used 
 within several methods in the FRASER package.
 
-\item \code{currentType<-}: Sets the psi type that is to be used 
+\item \code{currentType(fds) <- value}: Sets the psi type that is to be used 
 within several methods in the FRASER package.
 
-\item \code{pseudocount}: Sets and returns the pseudo count used 
+\item \code{pseudocount()}: Sets and returns the pseudo count used 
 within the FRASER fitting procedure.
 
-\item \code{hyperParams}: This returns the results of the 
+\item \code{hyperParams()}: This returns the results of the 
 hyperparameter optimization NULL if the hyperparameter 
 opimization was not run yet.
 
-\item \code{bestQ}: This returns the optimal size of the 
+\item \code{bestQ()}: This returns the optimal size of the 
 latent space according to the hyperparameter optimization or a simple 
 estimate of about a tenth of the number of samples if the hyperparameter 
 opimization was not run yet.
 
-\item \code{dontWriteHDF5}: Gets the current value of whether the 
+\item \code{dontWriteHDF5()}: Gets the current value of whether the 
 assays should be stored as hdf5 files.
 
-\item \code{dontWriteHDF5<-}: Sets whether the assays should be stored 
+\item \code{dontWriteHDF5(fds) <- value}: Sets whether the assays should be stored 
 as hdf5 files.
 
-\item \code{verbose}: Dependend on the level of verbosity 
+\item \code{verbose()}: Dependend on the level of verbosity 
 the algorithm reports more or less to the user. 0 means being quiet 
 and 10 means everything.
 
-\item \code{verbose<-}: Sets the verbosity level to a value 
+\item \code{verbose(fds) <- value}: Sets the verbosity level to a value 
 between 0 and 10. 0 means being quiet and 10 means reporting everything.
-}}
 
+}}
 \examples{
 fds <- createTestFraserDataSet()
 

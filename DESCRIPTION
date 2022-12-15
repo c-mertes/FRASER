@@ -7,6 +7,7 @@ Authors@R: c(
     person("Christian", "Mertes", role=c("aut", "cre"), 
             email="mertes@in.tum.de"),
     person("Ines", "Scheller",  role=c("aut"), email="scheller@in.tum.de"),
+    person("Karoline", "Lutz", role=c("aut")),
     person("Vicente", "Yepez", role=c("ctb"), email="yepez@in.tum.de"),
     person("Julien", "Gagneur", role=c("aut"), email="gagneur@in.tum.de"))
 Description: Detection of rare aberrant splicing events in transcriptome 
@@ -28,7 +29,7 @@ biocViews:
 License: MIT + file LICENSE
 URL: https://github.com/gagneurlab/FRASER
 BugRepots: https://github.com/gagneurlab/FRASER/issues
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
 Encoding: UTF-8
 VignetteBuilder: knitr
 Depends:
@@ -82,9 +83,10 @@ Suggests:
     covr,
     TxDb.Hsapiens.UCSC.hg19.knownGene,
     org.Hs.eg.db,
+    rtracklayer
 LinkingTo:
-    Rcpp,
-    RcppArmadillo
+    RcppArmadillo,
+    Rcpp
 Collate:
     variables.R
     getNSetterFuns.R
@@ -114,3 +116,4 @@ Collate:
     fitCorrectionMethods.R
     plotMethods.R
     zzz.R
+    resultAnnotations.R

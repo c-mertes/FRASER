@@ -94,23 +94,23 @@ raw counts ("BB").
 }
 \section{Functions}{
 \itemize{
-\item \code{FRASER}: This function runs the default FRASER pipeline combining 
+\item \code{FRASER()}: This function runs the default FRASER pipeline combining 
 the beta-binomial fit, the computation of Z scores and p values as well as 
 the computation of delta-PSI values.
 
-\item \code{calculateZscore}: This function calculates z-scores based on the 
+\item \code{calculateZscore()}: This function calculates z-scores based on the 
 observed and expected logit 
 psi.
 
-\item \code{calculatePvalues}: This function calculates two-sided p-values based on 
+\item \code{calculatePvalues()}: This function calculates two-sided p-values based on 
 the beta-binomial distribution (or binomial or normal if desired). The 
 returned p values are already adjusted with Holm's method per donor or 
 acceptor site, respectively.
 
-\item \code{calculatePadjValues}: This function adjusts the previously calculated 
+\item \code{calculatePadjValues()}: This function adjusts the previously calculated 
 p-values per sample for multiple testing.
-}}
 
+}}
 \examples{
 # set default parallel backend
 register(SerialParam())
