@@ -151,7 +151,13 @@ setReplaceMethod("workingDir", "FraserDataSet", function(object, value) {
 #' @export
 #' @rdname fds-methods
 setMethod("strandSpecific", "FraserDataSet", function(object) {
-    return(slot(object, "strandSpecific"))
+    if(!"strand" %in% colnames(colData(object))){
+        warning("Strand is not specified. Please set the used RNA-seq",
+                " protocol by using 'strandSpecific(object) <- c(...)'.",
+                "\n\nWe assume as default a non stranded protocol.")
+        return(0)
+    }
+    return(colData(object)$strand)
 })
 
 #' @export
@@ -161,15 +167,17 @@ setReplaceMethod("strandSpecific", "FraserDataSet", function(object, value) {
         value <- as.integer(value)
     }
     if(is.character(value)){
-        value <- switch(tolower(value),
-                        'no' = 0L,
-                        'unstranded' = 0L,
-                        'yes' = 1L,
-                        'stranded' = 1L,
-                        'reverse' = 2L,
-                        -1L)
+        val_chr <- tolower(value)
+        value <- sapply(val_chr, switch, 'no' = 0L, 'unstranded' = 0L, 
+                'yes' = 1L, 'stranded' = 1L, 'reverse' = 2L, -1L)
+        if(any(value < 0)){
+          stop("Please specify correct strandness of the samples.", 
+                  " It needs to be one of: 'no', 'unstranded', 'yes',",
+                  " 'stranded' or 'reverse'.", "\n\nIt was specified: ", 
+                  paste(collapse = ", ", val_chr[value < 0]))
+        }
     }
-    slot(object, "strandSpecific") <- value
+    colData(object)$strand <- as.integer(value)
     validObject(object)
     return(object)
 })
@@ -309,7 +317,6 @@ subset.FRASER <- function(x, i, j, by=c("j", "ss"), ..., drop=FALSE){
             subX,
             name            = name(x),
             bamParam        = scanBamParam(x),
-            strandSpecific  = strandSpecific(x),
             workingDir      = workingDir(x),
             nonSplicedReads = nsrObj
     )

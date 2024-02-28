@@ -270,8 +270,15 @@ findAnnotatedJunction <- function(fds, annotation, annotateNames=TRUE,
     # check if strandspecific data is used
     gr <- rowRanges(fds, type="psi5")
     
-    if(isFALSE(as.logical(stranded))){
-        strand(gr) <- "*"
+    # 
+    if(0 %in% stranded){
+        if(length(unique(stranded)) > 1){
+            warning("You use a mixture of stranded and unstranded data.", 
+                    " This is highly discouraged and ",
+                    " can lead to unwanted results. We treat all as stranded.")
+        } else {
+            strand(gr) <- "*"
+        }
     }
     
     # set correct seq level names

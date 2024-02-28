@@ -62,7 +62,7 @@ countSplitReads(
   keepNonStandardChromosomes = TRUE,
   bamfile = bamFile(fds[, sampleID]),
   pairedend = pairedEnd(fds[, sampleID]),
-  strandmode = strandSpecific(fds),
+  strandmode = strandSpecific(fds[, sampleID]),
   cacheFile = getSplitCountCacheFile(sampleID, fds),
   scanbamparam = scanBamParam(fds),
   coldata = colData(fds)

@@ -113,7 +113,6 @@ makeSimulatedFraserDataSet_BetaBinomial <- function(m=200, j=10000, q=10,
             junctionData,
             name            = name(fds),
             bamParam        = scanBamParam(fds),
-            strandSpecific  = strandSpecific(fds),
             workingDir      = workingDir(fds),
             nonSplicedReads = nonSplitData)
     
@@ -364,7 +363,6 @@ makeSimulatedFraserDataSet_Multinomial <- function(m=200, j=1000, q=10,
             junctionData,
             name            = name(fds),
             bamParam        = scanBamParam(fds),
-            strandSpecific  = strandSpecific(fds),
             workingDir      = workingDir(fds),
             nonSplicedReads = nonSplitData)
     

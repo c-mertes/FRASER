@@ -155,7 +155,6 @@ mergeExternalData <- function(fds, countFiles, sampleIDs, annotation=NULL){
     ans <- new("FraserDataSet",
             name = name(fds),
             bamParam = scanBamParam(fds),
-            strandSpecific = strandSpecific(fds),
             workingDir = workingDir(fds),
             colData = newColData,
             assays = Assays(SimpleList(
