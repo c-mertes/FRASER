@@ -151,7 +151,7 @@ setReplaceMethod("workingDir", "FraserDataSet", function(object, value) {
 #' @export
 #' @rdname fds-methods
 setMethod("strandSpecific", "FraserDataSet", function(object) {
-    if(!"strand" %in% colnames(colData(fds))){
+    if(!"strand" %in% colnames(colData(object))){
         warning("Strand is not specified. Please set the used RNA-seq",
                 " protocol by using 'strandSpecific(object) <- c(...)'.",
                 "\n\nWe assume as default a non stranded protocol.")

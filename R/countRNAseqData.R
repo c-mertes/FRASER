@@ -864,6 +864,7 @@ countNonSplicedReads <- function(sampleID, splitCountRanges, fds,
     # unstranded case: for counting only non spliced reads we 
     # skip this information
     isPairedEnd <- pairedEnd(fds[,samples(fds) == sampleID])[[1]]
+    strand <- strandSpecific(fds[,samples(fds) == sampleID])[[1]]
     doAutosort <- isPairedEnd
     
     # check cache if available
@@ -905,7 +906,7 @@ countNonSplicedReads <- function(sampleID, splitCountRanges, fds,
             allowMultiOverlap=TRUE,
             checkFragLength=FALSE,
             minMQS=bamMapqFilter(scanBamParam(fds)),
-            strandSpecific=strandSpecific(fds),
+            strandSpecific=strand,
             
             # activating long read mode
             isLongRead=longRead,
